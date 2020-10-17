@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+
+  db-sicredi:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_USER: sicredi
+      POSTGRES_DB:  sicredi
+    ports:
+      - "5432:5432"
+    network_mode: "host"
+    expose:
+      - "5432"
