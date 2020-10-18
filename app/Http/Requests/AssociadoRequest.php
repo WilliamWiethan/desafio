@@ -31,4 +31,13 @@ class AssociadoRequest extends FormRequest
             )
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nome.required' => 'Campo nome é obrigatório!',
+            'cpf.required' => 'Campo cpf é obrigatório!',
+            'cpf.regex' => 'Campo cpf deve ser no formato: 000.000.000-00'
+        ];
+    }
 }

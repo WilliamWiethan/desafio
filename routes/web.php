@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AssociadosController::class, 'index']);
+
 
 Route::prefix('associados')->group(function () {
 
@@ -43,5 +42,9 @@ Route::prefix('associados')->group(function () {
 
 Route::prefix('contas')->group(function () {
     Route::get('/import-form', [ContasController::class, 'importForm'])->name('contas.importForm');
-    Route::post('/import', [ContasController::class, 'import'])->name('contas.import');
+    Route::post('/', [ContasController::class, 'import'])->name('contas.import');
+});
+
+Route::prefix('agencias')->group(function () {
+    Route::get('/', [AssociadosController::class, 'associadoPorAgencia'])->name('agencias.associadoPorAgencia');;
 });

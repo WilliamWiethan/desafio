@@ -19,7 +19,7 @@ class CreateContasTable extends Migration
             $table->string('tipo');
             $table->unsignedInteger('agencia');
             $table->timestamps();
-            $table->foreign('cpf')->references('cpf')->on('associados')->onDelete('cascade');
+            $table->foreign('cpf')->references('cpf')->on('associados')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -8,6 +8,32 @@
 </div>
 <form action="{{route('contas.store', ['associado_id' => $associado->id])}}" method="post">
     <form action="{{route('associados.store')}}" method="post">
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control{{$errors->has('cpf') ? ' is-invalid' : ''}}"
+                onfocus="this.blur()" name="cpf" value="{{$associado->cpf}}">
+            @if ($errors->has('cpf'))
+            <span class="invalid-feedback">
+                <strong>
+                    {{$errors->first('cpf')}}
+                </strong>
+            </span>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="conta">Conta</label>
+            <input type="number" class="form-control{{$errors->has('conta') ? ' is-invalid' : ''}}"
+                onfocus="this.blur()" name="conta" value="{{old('conta')}}">
+            @if ($errors->has('conta'))
+            <span class="invalid-feedback">
+                <strong>
+                    {{$errors->first('conta')}}
+                </strong>
+            </span>
+            @endif
+        </div>
+
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <div>
             <div class="form-group">
@@ -16,30 +42,24 @@
                     <option selected>Conta Corrente</option>
                     <option>Conta Poupança</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="conta">Conta</label> <br>
-                <input type="text" class="form-control" name="conta"> <br>
                 @if ($errors->has('conta'))
-                <small class="form-text text-muted">{{$errors->first('conta')}}</small>
+                <small class="form-text text-danger">{{$errors->first('tipo')}}</small>
                 @endif
             </div>
-            <div class="form-group">
-                <label for="cpf">CPF</label> <br>
-                <input type="text" class="form-control" onfocus="this.blur()" name="cpf" value="{{$associado->cpf}}">
-                <br>
-                @if ($errors->has('cpf'))
-                <small class="form-text text-muted">{{$errors->first('cpf')}}</small>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="agencia">Agência</label> <br>
-                <input type="text" class="form-control" name="agencia" value="{{old('agencia')}}"> <br>
-                @if ($errors->has('agencia'))
-                <small class="form-text text-muted">{{$errors->first('agencia')}}</small>
-                @endif
-            </div>
+
+        <div class="form-group">
+            <label for="agencia">Agência</label>
+            <input type="text" class="form-control{{$errors->has('agencia') ? ' is-invalid' : ''}}"
+                name="agencia" value="{{old('agencia')}}">
+            @if ($errors->has('agencia'))
+            <span class="invalid-feedback">
+                <strong>
+                    {{$errors->first('agencia')}}
+                </strong>
+            </span>
+            @endif
         </div>
+
         <button type="submit" class="btn btn-dark">Salvar</button>
     </form>
     @endsection

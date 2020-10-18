@@ -5,20 +5,33 @@
 <form action="{{route('associados.update', ['id' => $associado->id])}}" method="post">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <div>
+
         <div class="form-group">
-            <label for="nome">Nome</label> <br>
-            <input type="text" class="form-control" name="nome" value="{{$associado->nome}}"> <br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control{{$errors->has('nome') ? ' is-invalid' : ''}}" name="nome"
+                value="{{$associado->nome}}">
             @if ($errors->has('nome'))
-            <small class="form-text text-muted">{{$errors->first('nome')}}</small>
+            <span class="invalid-feedback">
+                <strong>
+                    {{$errors->first('nome')}}
+                </strong>
+            </span>
             @endif
         </div>
+
         <div class="form-group">
-            <label for="cpf">CPF</label> <br>
-            <input type="text" class="form-control" name="cpf" value="{{$associado->cpf}}"> <br>
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control{{$errors->has('cpf') ? ' is-invalid' : ''}}" name="cpf"
+                value="{{$associado->cpf}}">
             @if ($errors->has('cpf'))
-            <small class="form-text text-muted">{{$errors->first('cpf')}}</small>
+            <span class="invalid-feedback">
+                <strong>
+                    {{$errors->first('cpf')}}
+                </strong>
+            </span>
             @endif
         </div>
+
     </div>
     <button type="submit" class="btn btn-dark">Salvar</button>
 </form>

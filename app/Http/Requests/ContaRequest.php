@@ -33,4 +33,17 @@ class ContaRequest extends FormRequest
             )
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'conta.required' => 'Campo conta é obrigatório!',
+            'conta.integer' => 'Conta deve ser um valor numérico!',
+            'conta.tipo' => 'Campo tipo é obrigatório!',
+            'agencia.required' => 'Campo agência é obrigatório!',
+            'agencia.integer' => 'Agência deve ser um valor numérico!',
+            'cpf.required' => 'Campo cpf é obrigatório!',
+            'cpf.regex' => 'Campo cpf deve ser no formato: 000.000.000-00'
+        ];
+    }
 }

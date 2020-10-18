@@ -6,7 +6,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">cpf</th>
+                    <th scope="col">CPF</th>
                     <th scope="col">Conta</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Agência</th>
