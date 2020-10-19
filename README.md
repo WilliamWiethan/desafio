@@ -25,15 +25,18 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ### Banco de dados:
 Precisa ter instalado docker e docker-compose.
+
 Na raiz do projeto docker-compose up -d --build.
+
 Está rodando com o banco PostgreSQL na versão 13.
 
 ### Dependências 
-Necessita o PHP na versão 7.3 ou superior e node na versão 12 ou superior
+Necessita o PHP na versão 7.3 ou superior. 
 
+Node na versão 12 ou superior.
 
 ### Execução do projeto
-No diretório do projeto faça:
+Na raiz do projeto faça:
 
 cp .env.example .env
 
@@ -44,9 +47,11 @@ Instalar as dependecias
 composer install
 
 yarn install ou npm install
+
 yarn run dev ou npm run dev
 
 php artisan migrate
+
 php artisan serve
 
 ## Learning Laravel
