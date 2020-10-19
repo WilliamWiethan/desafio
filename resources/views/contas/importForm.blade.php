@@ -14,6 +14,13 @@
                             @csrf
                             <div class="form-group">
                                 <input type="file" name="file" class="form-control-file">
+                                @if ($errors)
+                                <span class="text-danger">
+                                    <strong>
+                                        {{$errors->first()}}
+                                    </strong>
+                                </span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-dark">Carregar</button>
                         </form>

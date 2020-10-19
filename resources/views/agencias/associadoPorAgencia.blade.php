@@ -2,6 +2,13 @@
 @section('content')
 <div class="container-fluid">
 
+    @if (count($agencias) == 0)
+    <tr>
+        <td colspan="6" style="padding: 6px;">
+            Não foram encontrados registros.
+        </td>
+    </tr>
+    @endif
     @foreach ($agencias as $agencia)
     <div class="col text-center">
         <h2>Agência {{$agencia[0]->agencia}}</h2>

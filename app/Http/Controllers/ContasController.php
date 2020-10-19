@@ -8,6 +8,7 @@ use App\Models\Associado;
 use App\Imports\ContaImport;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContaRequest;
+use App\Http\Requests\ImportCsvRequest;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ContasController extends Controller
@@ -86,18 +87,22 @@ class ContasController extends Controller
     public function importForm()
     {
         try {
+            return view('contas.importForm');
         } catch (Exception $e) {
+            return view('contas.index', compact($this->errorResponse()));
             return $this->errorResponse();
         }
-        return view('contas.importForm');
     }
 
-    public function import(Request $request)
+    public function import(ImportCsvRequest $request)
     {
+        $request->validated();
         try {
             Excel::import(new ContaImport, $request->file);
+            return redirect()->route('associados.index')
+                ->with('success', 'Associado cadastrado com sucesso');
         } catch (Exception $e) {
-            return $this->errorResponse();
+            return view('contas.importForm');
         }
     }
 }

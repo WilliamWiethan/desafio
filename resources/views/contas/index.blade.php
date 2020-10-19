@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <table class="table table-striped ">
             <thead class="thead-dark">
